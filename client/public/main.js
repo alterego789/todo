@@ -21428,7 +21428,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   };
 
   // js/store/store.ts
-  var ws = new UbiWebSocket(`wss://${location.host}/`);
+  var ws = new UbiWebSocket(`wss://${location.host}/ws/`);
 
   // js/store/state.ts
   var INIT_START = 1;
