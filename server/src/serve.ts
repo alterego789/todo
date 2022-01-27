@@ -11,7 +11,7 @@ const server = createServer(config, (req, resp) => {
 		resp.writeHead(500, 'Internal server error');
 		resp.end();
 	}
-	if(req.method?.toLowerCase() !== 'get'){
+	if (req.method?.toLowerCase() !== 'get') {
 		errorResponse();
 		return;
 	}
@@ -26,11 +26,11 @@ const server = createServer(config, (req, resp) => {
 	});
 
 	const filename: string = path.normalize(config.root + req.url);
-	if(!filename.startsWith(config.root)){
+	if (!filename.startsWith(config.root)) {
 		errorResponse();
 		return;
 	}
-	
+
 	fs.stat(filename, (err, stats) => {
 		const finalPath = (err || stats.isDirectory()) ? config.root + '/index.html' : filename;
 		resp.setHeader('content-type', getContentTypeFromExt(filename, req.headers) as string);
@@ -46,31 +46,33 @@ const wss = new WebSocketServer({
 	backlog: 10
 });
 
+
 const watchers: WebSocket[] = [];
-fs.watch(config.root, {
-	recursive: true
-}, (event, filename) => {
-	console.log('file changed!', event, filename);
-	watchers.forEach(w => {
-		w.send(
-			JSON.stringify({
-				type: event,
-				payload: filename
-			})
-		);
+if (config.developement) {
+	fs.watch(config.root, {
+		recursive: true
+	}, (event, filename) => {
+		console.log('file changed!', event, filename);
+		watchers.forEach(w => {
+			w.send(
+				JSON.stringify({
+					type: event,
+					payload: filename
+				})
+			);
+		});
 	});
-});
+}
 wss.on('connection', (ws: WebSocket, request) => {
 	new WSConnection(wss, ws, request);
-	
-
-	
-	// TODO: add esbuild api directly
-	watchers.push(ws);
-	ws.on('close', () => {
-		const index = watchers.indexOf(ws);
-		watchers.splice(index, 1);
-	})
+	if (config.developement) {
+		// TODO: add esbuild api directly
+		watchers.push(ws);
+		ws.on('close', () => {
+			const index = watchers.indexOf(ws);
+			watchers.splice(index, 1);
+		});
+	}
 });
 
 server.listen(config);
