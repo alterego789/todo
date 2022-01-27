@@ -56,7 +56,6 @@ html, body {
 
 .main-input input {
 	display: flex;
-	font-family: 'Gochi Hand', cursive;
 	width: 100%;
 	padding: 0;
 	margin: 0;
@@ -67,7 +66,6 @@ html, body {
 .todo-item {
 	display: flex;
 	justify-content: space-between;
-	font-family:  'Gochi Hand', cursive;
 	font-size: 25px;
 	padding: 5px 0 0;
 	flex-grow: 1;
@@ -130,7 +128,6 @@ span.breadcrumb-item {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
-	font-family: 'Gochi Hand', cursive;
 }
 
 .todo-item > span {
@@ -192,7 +189,6 @@ span.no-data-placeholder {
 }
 
 h2 {
-	font-family: 'Gochi Hand', cursive;
 	font-size: 35px;
 	text-decoration: underline;
 }
