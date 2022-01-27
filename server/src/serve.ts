@@ -1,10 +1,14 @@
-import { createServer } from 'https';
+import { createServer as createHttps } from 'https';
+import { createServer as createHttp } from 'http';
 import { WebSocketServer, WebSocket } from 'ws';
 import { config } from './config/config.js';
 import { WSConnection } from './controllers/ws-connection.js';
 import fs, { createReadStream } from 'fs';
 import path from 'path';
 import { getContentTypeFromExt } from './lib/mime.js';
+
+// no need for https on unix socket
+const createServer = config.port ? createHttps : createHttp;
 
 const server = createServer(config, (req, resp) => {
 	const errorResponse = () => {
