@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export const config = {
-	root: path.normalize('../client/esbuild'),
+	root: path.normalize('../client/public'),
 	datapath: path.normalize('./data'),
 	host: '0.0.0.0',
 	port: 443,
