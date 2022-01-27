@@ -18,7 +18,6 @@
     "@types/ws": "^8.2.2"
   },
   "dependencies": {
-    "sqlite3": "^5.0.2",
     "ws": "^8.4.2",
     "@ubi-todo/shared": "../shared"
   }
