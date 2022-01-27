@@ -6,6 +6,7 @@ export const config = {
     host: 'localhost',
     port: 443,
     path: undefined,
+    developement: true,
     key: fs.readFileSync('./cert/key.pem'),
     cert: fs.readFileSync('./cert/cert.pem'),
     // passphrase: 'test'

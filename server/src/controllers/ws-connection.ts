@@ -1,9 +1,8 @@
-import { DispatchOptions, TodoItem, UUID, WSEventType } from '@ubi-todo/shared';
-import { createWriteStream } from "fs";
+import { DispatchOptions, TodoItem, WSEventType } from '@ubi-todo/shared';
+import fs, { createWriteStream } from 'fs';
 import { IncomingMessage } from "http";
-import { createWebSocketStream, WebSocket, WebSocketServer } from "ws";
-import fs from 'fs';
 import path from 'path';
+import { createWebSocketStream, WebSocket } from "ws";
 import { config } from '../config/config.js';
 
 // TODO: cleanup
@@ -14,7 +13,7 @@ const rooms: Record<string, WebSocket[]> = {};
 export class WSConnection {
 
 	room: WebSocket[];
-	constructor(private wss: WebSocketServer, private ws: WebSocket, private request: IncomingMessage) {
+	constructor(private ws: WebSocket, private request: IncomingMessage) {
 		// TODO: front-end for upload not implemented.. also some temporary token e.g. /uplad/token is required
 		if (request.url?.startsWith('/upload/')) {
 			this.handleUpload();

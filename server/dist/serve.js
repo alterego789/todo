@@ -40,25 +40,29 @@ const wss = new WebSocketServer({
     backlog: 10
 });
 const watchers = [];
-fs.watch(config.root, {
-    recursive: true
-}, (event, filename) => {
-    console.log('file changed!', event, filename);
-    watchers.forEach(w => {
-        w.send(JSON.stringify({
-            type: event,
-            payload: filename
-        }));
+if (config.developement) {
+    fs.watch(config.root, {
+        recursive: true
+    }, (event, filename) => {
+        console.log('file changed!', event, filename);
+        watchers.forEach(w => {
+            w.send(JSON.stringify({
+                type: event,
+                payload: filename
+            }));
+        });
     });
-});
+}
 wss.on('connection', (ws, request) => {
-    new WSConnection(wss, ws, request);
-    // TODO: add esbuild api directly
-    watchers.push(ws);
-    ws.on('close', () => {
-        const index = watchers.indexOf(ws);
-        watchers.splice(index, 1);
-    });
+    new WSConnection(ws, request);
+    if (config.developement) {
+        // TODO: add esbuild api directly
+        watchers.push(ws);
+        ws.on('close', () => {
+            const index = watchers.indexOf(ws);
+            watchers.splice(index, 1);
+        });
+    }
 });
 server.listen(config);
 //# sourceMappingURL=serve.js.map

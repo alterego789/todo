@@ -64,7 +64,7 @@ if (config.developement) {
 	});
 }
 wss.on('connection', (ws: WebSocket, request) => {
-	new WSConnection(wss, ws, request);
+	new WSConnection(ws, request);
 	if (config.developement) {
 		// TODO: add esbuild api directly
 		watchers.push(ws);

@@ -1,18 +1,15 @@
-import { createWriteStream } from "fs";
-import { createWebSocketStream } from "ws";
-import fs from 'fs';
+import fs, { createWriteStream } from 'fs';
 import path from 'path';
+import { createWebSocketStream } from "ws";
 import { config } from '../config/config.js';
 // TODO: cleanup
 const cache = {};
 const rooms = {};
 export class WSConnection {
-    wss;
     ws;
     request;
     room;
-    constructor(wss, ws, request) {
-        this.wss = wss;
+    constructor(ws, request) {
         this.ws = ws;
         this.request = request;
         // TODO: front-end for upload not implemented.. also some temporary token e.g. /uplad/token is required
