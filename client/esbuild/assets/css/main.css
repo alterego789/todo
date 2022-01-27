@@ -6,6 +6,8 @@
 html, body {
 	background-color: #7a7a7a;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	touch-action: manipulation;
+	height: 100%;
 }
 @font-face {
 	font-family: 'Material Icons';
@@ -44,12 +46,12 @@ html, body {
 }
 
 .main-app {
-	margin: 5vh auto;
-	width: 80vw;
-	background-color: #eee;
+	margin: 0 auto;
+	background-color: #eeec;
 	padding: 20px;
-	min-height: 76vh;
+	min-height: calc(100% - 40px);
 	position: relative;
+	min-width: 600px;
 }
 
 .main-input input {
@@ -93,7 +95,7 @@ span.strikethrough {
 }
 
 .item-list {
-	margin-right: 20px;
+	/* margin-right: 20px; */
 	flex-grow: 1;
 	overflow: hidden;
 }
@@ -113,6 +115,9 @@ a {
 	padding: 0;
 	display: flex;
 	overflow: hidden;
+	z-index: 1;
+	position: relative;
+	box-shadow: 0 0 3px;
 }
 
 span.breadcrumb-item {
@@ -161,7 +166,6 @@ span.drag-handle {
 
 .item-description {
 	flex-basis: 50%;
-	margin-top: 5px;
 }
 
 .item-description .textarea {
@@ -235,4 +239,9 @@ span.input-error {
 }
 .fade-out {
 	animation: fadeOut 200ms;
+}
+
+
+div#root {
+	height: 100%;
 }

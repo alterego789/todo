@@ -3,7 +3,7 @@ import path from 'path';
 export const config = {
     root: path.normalize('../client/esbuild'),
     datapath: path.normalize('./data'),
-    host: 'localhost',
+    host: '0.0.0.0',
     port: 443,
     path: undefined,
     developement: true,

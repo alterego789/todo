@@ -57,7 +57,6 @@ const actions = {
 		actions.updateItem(item);
 	},
 	toggleItemState: (id: UUID<TodoItem>) => () => {
-		console.log('toggle');
 		const item = findItem(id, globalState.items);
 		if (item) {
 			item.completed = !item.completed;

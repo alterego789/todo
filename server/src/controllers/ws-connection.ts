@@ -81,7 +81,7 @@ export class WSConnection {
 
 				const filename = path.join(config.datapath, item.id.toString());
 				fs.writeFile(filename, JSON.stringify(payload), () => {
-					console.log('saved!');
+					console.log('item updated', filename);
 					this.sendRoom('item.update', cache[id]);
 				});
 				return;

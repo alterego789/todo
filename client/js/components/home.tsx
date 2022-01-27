@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import { useGlobalState } from '../store/state.js';
 import { findItem } from '../utils/utils.js';
+import { Breadcrumbs } from './breadcrumbs.js';
 import { Icon } from './icon.js';
 import { Input } from './input.js';
 import { TodoItemView } from './todo-item-view';
@@ -12,6 +13,8 @@ export const Home = () => {
 	const item = itemId ? findItem(itemId, gState.items) : null;
 	const rootItems = itemId ? item?.details?.items ?? [] : gState.items;
 	return (
+		<>
+		<Breadcrumbs />
 		<div className='main-app'>
 			<Input itemId={itemId} />
 			<div className='item-list'>
@@ -22,5 +25,6 @@ export const Home = () => {
 					))}
 			</div>
 		</div>
+		</>
 	)
 }

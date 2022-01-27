@@ -1,4 +1,3 @@
-import { UUID } from '@ubi-todo/shared';
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import { INIT_START, useGlobalState } from '../store/state.js';

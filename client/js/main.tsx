@@ -28,8 +28,6 @@ const root = document.getElementById('root');
 ReactDOM.render(<Main />, root);
 
 ws.on<string>('change', (payload) => {
-	// or call window reload..
-	console.log('change', payload);
 	if (payload === 'main.js') {
 		window.location.reload();
 	}
@@ -49,5 +47,4 @@ ws.on<string>('change', (payload) => {
 			console.log('ServiceWorker registration failed: ', err);
 		});
 	});
-
 })();

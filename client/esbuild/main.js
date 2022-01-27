@@ -2488,7 +2488,7 @@
           var HostPortal = 4;
           var HostComponent = 5;
           var HostText = 6;
-          var Fragment3 = 7;
+          var Fragment4 = 7;
           var Mode = 8;
           var ContextConsumer = 9;
           var ContextProvider = 10;
@@ -11672,7 +11672,7 @@
               }
             }
             function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-              if (current2 === null || current2.tag !== Fragment3) {
+              if (current2 === null || current2.tag !== Fragment4) {
                 var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
                 created.return = returnFiber;
                 return created;
@@ -12040,7 +12040,7 @@
               while (child !== null) {
                 if (child.key === key) {
                   switch (child.tag) {
-                    case Fragment3: {
+                    case Fragment4: {
                       if (element.type === REACT_FRAGMENT_TYPE) {
                         deleteRemainingChildren(returnFiber, child.sibling);
                         var existing = useFiber(child, element.props.children);
@@ -15644,7 +15644,7 @@
                 var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
                 return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
               }
-              case Fragment3:
+              case Fragment4:
                 return updateFragment(current2, workInProgress2, renderLanes2);
               case Mode:
                 return updateMode(current2, workInProgress2, renderLanes2);
@@ -15811,7 +15811,7 @@
               case SimpleMemoComponent:
               case FunctionComponent:
               case ForwardRef:
-              case Fragment3:
+              case Fragment4:
               case Mode:
               case Profiler:
               case ContextConsumer:
@@ -19515,7 +19515,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             return fiber;
           }
           function createFiberFromFragment(elements, mode, lanes, key) {
-            var fiber = createFiber(Fragment3, elements, key, mode);
+            var fiber = createFiber(Fragment4, elements, key, mode);
             fiber.lanes = lanes;
             return fiber;
           }
@@ -21424,9 +21424,6 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         console.log("ws close", event);
         this.initWs(url);
       });
-      this.ws.addEventListener("message", (event) => {
-        console.log("ws message", event.data);
-      });
     }
   };
 
@@ -21474,7 +21471,6 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       actions.updateItem(item);
     },
     toggleItemState: (id) => () => {
-      console.log("toggle");
       const item = findItem(id, globalState.items);
       if (item) {
         item.completed = !item.completed;
@@ -21760,7 +21756,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     const { itemId } = useParams();
     const item = itemId ? findItem(itemId, gState.items) : null;
     const rootItems = itemId ? item?.details?.items ?? [] : gState.items;
-    return /* @__PURE__ */ React8.createElement("div", {
+    return /* @__PURE__ */ React8.createElement(React8.Fragment, null, /* @__PURE__ */ React8.createElement(Breadcrumbs, null), /* @__PURE__ */ React8.createElement("div", {
       className: "main-app"
     }, /* @__PURE__ */ React8.createElement(Input, {
       itemId
@@ -21771,7 +21767,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }, /* @__PURE__ */ React8.createElement(Icon, null, "published_with_changes")) : rootItems.map((item2) => /* @__PURE__ */ React8.createElement(TodoItemView, {
       item: item2,
       key: item2.id.toString()
-    }))));
+    })))));
   };
 
   // js/main.tsx
@@ -21785,7 +21781,6 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   var root = document.getElementById("root");
   ReactDOM.render(/* @__PURE__ */ React9.createElement(Main, null), root);
   ws.on("change", (payload) => {
-    console.log("change", payload);
     if (payload === "main.js") {
       window.location.reload();
     }
