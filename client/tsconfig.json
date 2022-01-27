@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "module": "es2015",
+    "target": "es2015",
+    "sourceMap": true,
+    "allowJs": true,
+    "checkJs": true,
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "jsx": "react",
+    "preserveSymlinks": true
+  },
+  "exclude": [
+    "./www"
+  ]
+}

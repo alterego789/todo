@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "module": "esnext",
+    "target": "esnext",
+    "sourceMap": false,
+    "allowJs": false,
+    "checkJs": false,
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "preserveSymlinks": false,
+  }
+}

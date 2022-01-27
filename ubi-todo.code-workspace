@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"name": "@ubi-todo",
+			"path": "."
+		},
+		{
+			"name": "client",
+			"path": "client"
+		},
+		{
+			"name": "server",
+			"path": "server"
+		},
+		{
+			"name": "shared",
+			"path": "shared"
+		}
+	],
+	"settings": {
+		"javascript.preferences.importModuleSpecifierEnding": "js",
+		"typescript.preferences.importModuleSpecifierEnding": "js"
+	}
+}
