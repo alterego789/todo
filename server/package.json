@@ -7,7 +7,8 @@
   "types": "./model/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc --watch | npx supervisor -i data -w ./dist/ -- ./dist/serve.js"
+    "dev": "tsc --watch | npx supervisor -i data -w ./dist/ -- ./dist/serve.js",
+    "run": "npx supervisor -i data -w ./dist/ -- ./dist/serve.js"
   },
   "author": "",
   "license": "ISC",
