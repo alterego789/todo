@@ -21361,7 +21361,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return [completed, total];
   };
 
-  // js/lib/UbiWebSocket.ts
+  // js/lib/ubi-web-socket.ts
   var UbiWebSocket = class {
     constructor(url) {
       this.pendingRequests = [];

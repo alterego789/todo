@@ -1,5 +1,5 @@
 import { User, ACTION_DELIMITER } from '@ubi-todo/shared';
-import { UbiWebSocket } from '../lib/UbiWebSocket.js';
+import { UbiWebSocket } from '../lib/ubi-web-socket.js';
 import { Channel, Mutation, MutationActions, MutationPayload, MutationReturns, Query, QueryActions, QueryPayload, QueryReturns } from '../cruft/channels.js';
 import { todoItemActions } from '../cruft/todo-item/todo-item.store.js';
 import { userActions } from '../cruft/user/user.store.js';
