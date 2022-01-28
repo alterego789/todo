@@ -1,0 +1,260 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	scrollbar-width: auto;
+	scrollbar-color: #5b5757 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+	width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #ffffff00;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #5b5757ab;
+	border-radius: 10px;
+}
+html, body {
+	background-color: #7a7a7a;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	touch-action: manipulation;
+	height: 100%;
+}
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Material Icons'),
+		local('MaterialIcons-Regular'),
+		url(../fonts/MaterialIcons-Regular.woff2) format('woff2')
+}
+
+.ico {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	vertical-align: bottom;
+	font-size: inherit;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1.1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+	
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+	
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+	user-select: none;
+}
+
+.main-app {
+	margin: 0 auto;
+	background-color: #eeec;
+	padding: 20px;
+	min-height: calc(100% - 40px);
+	position: relative;
+	min-width: 600px;
+}
+
+.main-input input {
+	display: flex;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	line-height: 25px;
+	font-size: 21px;
+}
+
+.todo-item {
+	display: flex;
+	justify-content: space-between;
+	font-size: 25px;
+	padding: 5px 0 0;
+	flex-grow: 1;
+	text-align: left;
+	position: relative;
+}
+.todo-item .ico {
+	cursor: pointer;
+}
+
+span.absolute {position: absolute;pointer-events: none;}
+
+span.tick.absolute .ico {
+	top: -9px;
+	position: relative;
+	left: -3px;
+	font-size: 35px;
+	color: #007200;
+	user-select: none;
+	animation: tick 100ms;
+	/* pointer-events: none; */
+}
+
+span.strikethrough {
+	text-decoration: line-through;
+}
+
+.item-list {
+	/* margin-right: 20px; */
+	flex-grow: 1;
+	overflow: auto;
+}
+
+h1.error { 
+	text-align: center
+}
+
+a {
+	text-decoration: none;
+	color: rgb(0 69 129);
+}
+
+.breadcrumbs {
+	background-color: #fefefe;
+	font-size: 25px;
+	padding: 0;
+	display: flex;
+	overflow: hidden;
+	z-index: 1;
+	position: relative;
+	box-shadow: 0 0 3px;
+}
+
+span.breadcrumb-item {
+	border-radius: 0 20px 20px 0;
+	border-left: none;
+	box-shadow: 5px 1px 3px #858585;
+	padding: 5px 14px 5px 24px;
+	margin-right: -16px;
+	max-width: 203px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.todo-item > span {
+	width: 59px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.item-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.item-details {
+	display: flex;
+	flex-basis: 50%;
+	margin-top: 86px;
+	position: absolute;
+	left: 13px;
+	right: 20px;
+	bottom: 15px;
+	top: 52px;
+}
+
+span.drag-handle {
+	flex-grow: 0;
+	flex-basis: 10px;
+}
+
+.todo-item > a {
+	flex-grow: 1;
+}
+
+.item-description {
+	flex-basis: 50%;
+}
+
+.item-description .textarea {
+	width: 100%;
+	height: 100%;
+	padding: 3px 4px;
+	border: solid 1px;
+	resize: none;
+}
+
+span.no-data-placeholder {
+	align-self: center;
+	font-size: 166px;
+	color: #f7f7f7;
+	outline: 1px aliceblue;
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+
+.main-input label {
+	font-size: 10px;
+	color: #999;
+}
+
+h2 {
+	font-size: 35px;
+	text-decoration: underline;
+}
+
+span.input-error {
+	font-size: 11px;
+	margin-top: 15px;
+	color: #a14300;
+}
+
+
+@keyframes tick {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.fade-in {
+	animation: fadeIn 200ms;
+}
+.fade-out {
+	animation: fadeOut 200ms;
+}
+
+
+div#root {
+	height: 100%;
+}
